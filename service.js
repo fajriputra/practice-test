@@ -16,7 +16,7 @@ app.get("/palindrome", function (req, res) {
   }
   return res.status(200).json({
     status: "success",
-    data: `${result} total of palingdrome`,
+    data: `${result} total of palindrome`,
   });
 });
 app.listen(port, function () {

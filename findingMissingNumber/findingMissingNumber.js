@@ -1,6 +1,10 @@
+// Gets the integer at position index
+// with length, returns it or -1,
+// if none
 function getValue(str, index, length) {
   if (index + length > str.length) return false;
 
+  // Find value at index and length.
   let value = 0;
   for (let i = 0; i < length; i++) {
     let code = str[index + i].charCodeAt(0) - "0".charCodeAt(0);
@@ -10,23 +14,39 @@ function getValue(str, index, length) {
   return value;
 }
 
+// Returns value of missing number
 function findMissingNumber(str) {
+  // Try all lengths for first number
   for (let i = 1; i < str.length; i++) {
+    // Get value of first number with
+    // current length
     let num = getValue(str, 0, i);
     if (num == -1) return false;
 
+    // To store missing number of
+    // current length
     let missingNumber = -1;
 
+    // To indicate whether the sequence
+    // failed anywhere for current length.
     let isFailed = false;
 
+    // Find subsequent numbers with
+    // previous number as n
     for (let j = i; j != str.length; j += 1 + Math.floor(Math.log10(num))) {
+      // If we haven't yet found the missing number
+      // for current length. Next number is n+2. Note
+      // that we use Log10 as (n+2) may have more
+      // length than n.
       if (
         missingNumber == -1 &&
         getValue(str, j, Math.floor(1 + Math.log10(num + 2))) == num + 2
       ) {
         missingNumber = num + 1;
         num += 2;
-      } else if (
+      }
+      // If next value is (n+1)
+      else if (
         getValue(str, j, Math.floor(1 + Math.log10(num + 1))) ==
         num + 1
       ) {
@@ -37,6 +57,7 @@ function findMissingNumber(str) {
       }
     }
 
+    // return missing number and convert to string
     if (!isFailed) return String(missingNumber);
   }
 
