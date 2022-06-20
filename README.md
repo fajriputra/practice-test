@@ -4,13 +4,15 @@ This repo contains some questions of Pre Test interview using `Javascript`.
 
 ##### 1. Palindrome of range number
 
-##### 2. Sorting Book related height, category, etc
+##### 2. Sorting Book related height, category, etc (unfinished)
 
 ##### 3. Finding of missing number
 
 ##### 4. Create unit test of each function
 
 ##### 5, Create a Web Service from one of the functions 1-3 questions
+
+##### 6. Create a Service Docker (unfinished)
 
 ## Installation :
 
@@ -32,51 +34,6 @@ This repo contains some questions of Pre Test interview using `Javascript`.
 
   - Parameters
     - accept single parameter `str` with type string <br/> <br/>
-  - What the function returns
-    - result of the total palindrome <br/> <br/>
-  - Final Code
-
-    ```javascript
-    function palindrome(str) {
-      // split the string into an array from start to end
-      let [start, end] = str.split(" ");
-
-      // result of subtraction params end to start
-      let countLoop = end - start;
-
-      // result of palindrome
-      let countPalindrome = 0;
-
-      // looping countLoop to get index of loop
-      for (let i = 0; i < countLoop; i++) {
-        // if numbers reverse is not matches with start, not palindrome
-        const isPalindrome =
-          String(start).split("").reverse().join("") == start;
-
-        // if mathces, countPalindrome + 1
-        if (isPalindrome) countPalindrome += 1;
-
-        start++;
-      }
-
-      // return palindrome;
-      return countPalindrome;
-    }
-    console.log(palindrome("1 10"), "9"); // 9
-    console.log(palindrome("99 100"), "1"); // 1
-    console.log(palindrome("21 31"), "1"); // 1
-    ```
-
-- Sorting Books
-
-  - Add function
-
-    ```javascript
-    function palindrome(str) {}
-    ```
-
-  - Parameters
-    - `str` accept the type string <br/> <br/>
   - What the function returns
     - result of the total palindrome <br/> <br/>
   - Final Code
@@ -208,3 +165,7 @@ This repo contains some questions of Pre Test interview using `Javascript`.
     console.log(findMissingNumber("9799100101102"), "98");
     console.log(findMissingNumber("100001100002100003100004100006"), "100005");
     ```
+
+- Web service of Palindrome
+
+  Run the application with command `node service.js` then enter, open Postman or Browser, then input endpoint `http://localhost:3000/palindrome?range=1 10` with notation space

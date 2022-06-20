@@ -15,7 +15,6 @@ function palindrome(str) {
 
     // if mathces, countPalindrome + 1
     if (isPalindrome) countPalindrome += 1;
-
     start++;
   }
 

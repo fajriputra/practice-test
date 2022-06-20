@@ -6,9 +6,9 @@ const port = 3000;
 app.use(express.json());
 app.get("/palindrome", function (req, res) {
   //   console.log(req.body);
-  const { param } = req.body;
-  const result = palindrome(param);
-  if (param.indexOf(" ") == -1) {
+  const { range } = req.query;
+  const result = palindrome(range);
+  if (range.indexOf(" ") == -1) {
     return res.status(400).json({
       status: "error",
       message: "not palindrome",
